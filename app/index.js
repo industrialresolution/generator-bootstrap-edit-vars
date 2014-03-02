@@ -69,7 +69,6 @@ BootstrapLessGenerator.prototype.packageJSON = function packageJSON() {
 
 BootstrapLessGenerator.prototype.git = function git() {
   this.copy('gitignore', '.gitignore');
-  this.copy('gitattributes', '.gitattributes');
 };
 
 BootstrapLessGenerator.prototype.bower = function bower() {
