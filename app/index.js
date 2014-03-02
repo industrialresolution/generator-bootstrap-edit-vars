@@ -15,14 +15,20 @@ var BootstrapLessGenerator = module.exports = function BootstrapLessGenerator(ar
     options['test-framework'] = 'mocha';
   }
   // resolved to mocha by default (could be switched to jasmine for instance)
-  this.hookFor('test-framework', { as: 'app' });
+  this.hookFor('test-framework', { 
+    as: 'app',
+    options: {
+      options: {
+        'skip-install': options['skip-install-message'],
+		'skip-message': options['skip-install']		
+      }
+    }
+});
 
   this.indexFile = this.readFileAsString(path.join(this.sourceRoot(), 'index.html'));
   this.mainJsFile = '';
 
-  this.on('end', function () {
-    this.installDependencies({ skipInstall: options['skip-install'] });
-  });
+  this.options = options;
 
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
 };
@@ -183,4 +189,17 @@ BootstrapLessGenerator.prototype.app = function app() {
   this.write('app/index.html', this.indexFile);
   this.write('app/scripts/hello.coffee', this.mainCoffeeFile);
   this.write('app/scripts/main.js', this.mainJsFile);
+};
+
+BootstrapLessGenerator.prototype.install = function () {
+  if (this.options['skip-install']) {
+    return;
+  }
+
+  var done = this.async();
+  this.installDependencies({
+    skipMessage: this.options['skip-install-message'],
+    skipInstall: this.options['skip-install'],
+    callback: done
+  });
 };
