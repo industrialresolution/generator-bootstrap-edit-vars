@@ -1,7 +1,7 @@
 {
   "name": "generator-bootstrap3-less-editable-vars",
-  "version": "1.0.0",
-  "description": "A yeoman generator to work with the LESS version of Bootstrap 3. This version allows you to customize your own 'variables.less'.",
+  "version": "1.0.1",
+  "description": "Yeoman generator: Bootstrap + Editable variables.less file",
   "main": "app/index.js",
   "scripts": {
     "test": "mocha"
