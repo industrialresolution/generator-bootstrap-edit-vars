@@ -21,5 +21,12 @@
   "bugs": {
     "url": "https://github.com/industrialresolution/generator-bootstrap3-less-editable-vars/issues"
   },
-  "homepage": "https://github.com/industrialresolution/generator-bootstrap3-less-editable-vars"
+  "homepage": "https://github.com/industrialresolution/generator-bootstrap3-less-editable-vars",
+  "dependencies": {
+    "yeoman-generator": "^0.16.0"
+  },
+  "engines": {
+    "node": ">=0.10.0",
+    "npm": ">=1.4.0"
+  }
 }

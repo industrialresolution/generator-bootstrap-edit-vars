@@ -1,0 +1,16 @@
+Description:
+    Creates a new basic front-end web site with the LESS version of Bootstrap 3 and a custom variables.less file.
+
+Options:
+    Bootstrap Javascript files: Include the Bootstrap Javascript files
+    FontAwesome: Include the icon webfont FontAwesome
+
+Example:
+    yo bootstrap3-less-editable-vars
+
+    This will create:
+        Gruntfile.js: Configuration for the task runner.
+        bower.json: Front-end packages installed by bower.
+        package.json: Development packages installed by npm.
+
+        app/: Your application files.
