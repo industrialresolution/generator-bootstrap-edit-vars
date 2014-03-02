@@ -1,4 +1,4 @@
-# Generator Bootstrap3 Less Editable Vars
+# Generator Bootstrap Edit Vars
 
 A yeoman generator to work with the LESS version of Bootstrap 3. This version allows you to customize your own 'variables.less'. Based on https://github.com/Thomas-Lebeau/generator-bootstrap-less
 
