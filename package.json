@@ -1,0 +1,25 @@
+{
+  "name": "generator-bootstrap3-less-editable-vars",
+  "version": "1.0.0",
+  "description": "A yeoman generator to work with the LESS version of Bootstrap 3. This version allows you to customize your own 'variables.less'.",
+  "main": "app/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/industrialresolution/generator-bootstrap3-less-editable-vars.git"
+  },
+  "keywords": [
+    "yeoman-generator",
+    "less",
+    "bootstrap",
+    "generator"
+  ],
+  "author": "The Industrial Resolution",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/industrialresolution/generator-bootstrap3-less-editable-vars/issues"
+  },
+  "homepage": "https://github.com/industrialresolution/generator-bootstrap3-less-editable-vars"
+}
