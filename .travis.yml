@@ -1,0 +1,7 @@
+language: node_js
+node_js:
+  - '0.10'
+before_install:
+  - currentfolder=${PWD##*/}
+  - if [ "$currentfolder" != 'generator-bootstrap-edit-vars' ]; then cd .. && eval "mv $currentfolder generator-bootstrap-edit-vars" && cd generator-bootstrap-edit-vars; fi
+

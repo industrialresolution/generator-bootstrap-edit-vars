@@ -6,7 +6,7 @@ Options:
     FontAwesome: Include the icon webfont FontAwesome
 
 Example:
-    yo bootstrap3-less-editable-vars
+    yo bootstrap-edit-vars
 
     This will create:
         Gruntfile.js: Configuration for the task runner.

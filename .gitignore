@@ -1,1 +1,4 @@
 node_modules/
+temp/
+generator-bootstrap-edit-vars.iml
+.idea

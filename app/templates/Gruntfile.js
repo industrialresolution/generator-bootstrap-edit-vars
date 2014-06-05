@@ -97,27 +97,12 @@ module.exports = function (grunt) {
       },
       all: [
         'Gruntfile.js',
-        '<%%= yeoman.app %>/scripts/{,*/}*.js',
-        '!<%%= yeoman.app %>/scripts/vendor/*',
         'test/spec/{,*/}*.js'
       ]
-    },<% if (testFramework === 'mocha') { %>
-    mocha: {
-      all: {
-        options: {
-          run: true,
-          urls: ['http://localhost:<%%= connect.options.port %>/index.html']
-        }
-      }
-    },<% } else if (testFramework === 'jasmine') { %>
-    jasmine: {
-      all: {
-        /*src: '',*/
-        options: {
-          specs: 'test/spec/{,*/}*.js'
-        }
-      }
-    },<% } %>
+    },
+    coffeelint: {
+      all: ['<%%= yeoman.app %>/scripts/{,*/}*.coffee']
+    },
     coffee: {
       dist: {
         files: [{
@@ -142,29 +127,6 @@ module.exports = function (grunt) {
         }
       }
     },
-    // not used since Uglify task does concat,
-    // but still available if needed
-    /*concat: {
-      dist: {}
-    },*/
-    // not enabled since usemin task does concat and uglify
-    // check index.html to edit your build targets
-    // enable this task if you prefer defining your build targets here
-    /*uglify: {
-      dist: {}
-    },*/
-    rev: {
-      dist: {
-        files: {
-          src: [
-            '<%%= yeoman.dist %>/scripts/{,*/}*.js',
-            '<%%= yeoman.dist %>/styles/{,*/}*.css',
-            '<%%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
-            '<%%= yeoman.dist %>/fonts/{,*/}*.*'
-          ]
-        }
-      }
-    },
     useminPrepare: {
       html: '<%%= yeoman.app %>/index.html',
       options: {
@@ -178,23 +140,13 @@ module.exports = function (grunt) {
         dirs: ['<%%= yeoman.dist %>']
       }
     },
-    imagemin: {
+    htmlmin: {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%%= yeoman.app %>/images',
-          src: '{,*/}*.{png,jpg,jpeg}',
-          dest: '<%%= yeoman.dist %>/images'
-        }]
-      }
-    },
-    svgmin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%%= yeoman.app %>/images',
-          src: '{,*/}*.svg',
-          dest: '<%%= yeoman.dist %>/images'
+          cwd: '<%%= yeoman.app %>',
+          src: '*.html',
+          dest: '<%%= yeoman.dist %>'
         }]
       }
     },
@@ -208,25 +160,16 @@ module.exports = function (grunt) {
         }
       }
     },
-    htmlmin: {
+    rev: {
       dist: {
-        options: {
-          /*removeCommentsFromCDATA: true,
-          // https://github.com/yeoman/grunt-usemin/issues/44
-          //collapseWhitespace: true,
-          collapseBooleanAttributes: true,
-          removeAttributeQuotes: true,
-          removeRedundantAttributes: true,
-          useShortDoctype: true,
-          removeEmptyAttributes: true,
-          removeOptionalTags: true*/
-        },
-        files: [{
-          expand: true,
-          cwd: '<%%= yeoman.app %>',
-          src: '*.html',
-          dest: '<%%= yeoman.dist %>'
-        }]
+        files: {
+          src: [
+            '<%%= yeoman.dist %>/scripts/{,*/}*.js',
+            '<%%= yeoman.dist %>/styles/{,*/}*.css',
+            '<%%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
+            '<%%= yeoman.dist %>/fonts/{,*/}*.*'
+          ]
+        }
       }
     },
     copy: {
@@ -245,13 +188,15 @@ module.exports = function (grunt) {
         }]
       },
       server: {
-        files: [{<% if (fontawesome) { %>
+        files: [<% if (fontawesome) { %> {
           expand: true,
           dot: true,
           cwd: '<%%= yeoman.app %>/bower_components/font-awesome/fonts/',
           dest: '<%%= yeoman.app %>/fonts/font-awesome',
-          src: ['*']<% } %>
-        }, {
+          src: ['*']
+        },
+        <% } %>
+        {
           expand: true,
           dot: true,
           cwd: '<%%= yeoman.app %>/bower_components/bootstrap/fonts/',
@@ -263,10 +208,7 @@ module.exports = function (grunt) {
     concurrent: {
       dist: [
         'coffee',
-        'less',
-        'imagemin',
-        'svgmin',
-        'htmlmin'
+        'less'
       ]
     }
   });
@@ -292,30 +234,29 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('test', [
-    'clean:server',
-    'coffee',
-    'less',
-    'copy:server',
-    'connect:test',<% if (testFramework === 'mocha') { %>
-    'mocha'<% } else if (testFramework === 'jasmine') { %>
-    'jasmine'<% } %>
+    'coffee',  //compiles coffeescript to js in ./app/scripts
+    'less',  //compiles main.less to main.css and creates source map in ./app/styles
+    'copy:server', //copies fontawesome(optional) and glyphicons from bower components to ./app/fonts/
+    'connect:test',  //creates a server on port 9001 with test and app as base dirs
   ]);
 
   grunt.registerTask('build', [
-    'clean:dist',
-    'copy:server',
+    'clean:dist',  //cleans out ./dist, except for .git* files
+    'copy:server',  //copies fontawesome(optional) and glyphicons from bower components to ./app/fonts/
     'useminPrepare',
     'concurrent',
+    'htmlmin',
     'cssmin',
     'concat',
     'uglify',
     'copy',
-    'rev',
+    'rev',  //hash based file revisioning
     'usemin'
   ]);
 
   grunt.registerTask('default', [
-    'jshint',
+    'coffeelint',
+    'jshint', //lints all non-vendor js files in ./app/scripts, Gruntfile.js, and tests
     'test',
     'build'
   ]);

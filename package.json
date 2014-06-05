@@ -1,39 +1,48 @@
 {
-  "name": "generator-bootstrap-edit-vars",
-  "version": "1.0.2",
-  "description": "Yeoman generator: Bootstrap + Editable variables.less file",
-  "main": "app/index.js",
-  "scripts": {
-    "test": "mocha"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/industrialresolution/generator-bootstrap-edit-vars.git"
-  },
-  "keywords": [
-    "yeoman-generator",
-    "less",
-    "bootstrap",
-    "generator"
-  ],
-  "author": "The Industrial Resolution",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/industrialresolution/generator-bootstrap-edit-vars/issues"
-  },
-  "homepage": "https://github.com/industrialresolution/generator-bootstrap-edit-vars",
-  "dependencies": {
-    "yeoman-generator": "^0.16.0"
-  },
-  "peerDependencies": {
-    "generator-mocha": "~0.1.1"
-  },
-  "devDependencies": {
-    "mocha": "~1.12.0"
-  },
-  "engines": {
-    "node": ">=0.10.0",
-    "npm": ">=1.4.0"
-  },
-  "readmeFilename": "README.md"
+    "name": "generator-bootstrap-edit-vars",
+    "version": "2.0.0",
+    "description": "Yeoman generator: Bootstrap + Editable variables.less file",
+    "main": "app/index.js",
+    "scripts": {
+        "test": "mocha"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/industrialresolution/generator-bootstrap-edit-vars.git"
+    },
+    "keywords": [
+        "yeoman-generator",
+        "less",
+        "bootstrap",
+        "generator"
+    ],
+    "author": {
+        "name": "The Industrial Resolution",
+        "email": "support@theindustrialresolution.com",
+        "url": "https://github.com/industrialresolution"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/industrialresolution/generator-bootstrap-edit-vars/issues"
+    },
+    "homepage": "https://github.com/industrialresolution/generator-bootstrap-edit-vars",
+    "dependencies": {
+        "yeoman-generator": "~0.16.0",
+        "chalk": "~0.4.0",
+        "yosay": "^0.1.0"
+    },
+    "peerDependencies": {
+        "yo": ">=1.0.0"
+    },
+    "devDependencies": {
+        "mocha": "*"
+    },
+    "engines": {
+        "node": ">=0.10.0",
+        "npm": ">=1.4.0"
+    },
+    "readmeFilename": "README.md",
+    "files": [
+        "app"
+    ]
 }
