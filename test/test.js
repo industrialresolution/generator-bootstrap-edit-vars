@@ -26,7 +26,8 @@ describe('bootstrap-edit-vars generator', function () {
         ];
 
         helpers.mockPrompt(this.app, {
-            
+            'fontawesome': false,
+            'jsBootstrap': false
         });
         this.app.options['skip-install'] = true;
         this.app.run({}, function () {

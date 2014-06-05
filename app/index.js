@@ -7,12 +7,10 @@ var chalk = require('chalk');
 
 var BootstrapEditVarsGenerator = yeoman.generators.Base.extend({
     initializing: function () {
-        console.log('--init--');
         this.pkg = require('../package.json');
     },
 
     prompting: function () {
-        console.log('--prompting--');
         var done = this.async();
 
         // Have Yeoman greet the user.
@@ -43,7 +41,6 @@ var BootstrapEditVarsGenerator = yeoman.generators.Base.extend({
     },
 
     mainStyleSheet: function () {
-        console.log('--mainstyle--');
         var html = '@import "bootstrap.less";\n@icon-font-path: "../fonts/glyphicons/";\n\n';
 
         if (this.fontawesome) {
@@ -56,14 +53,12 @@ var BootstrapEditVarsGenerator = yeoman.generators.Base.extend({
     },
 
     bootstrapStylesheet: function () {
-        console.log('--bootstrap--');
         var html = '@path:"../bower_components/bootstrap/less/";\n\n// Core variables and mixins\n@import "variables.less";\n@import "@{path}mixins.less";\n\n// Reset\n@import "@{path}normalize.less";\n@import "@{path}print.less";\n\n// Core CSS\n@import "@{path}scaffolding.less";\n@import "@{path}type.less";\n@import "@{path}code.less";\n@import "@{path}grid.less";\n@import "@{path}tables.less";\n@import "@{path}forms.less";\n@import "@{path}buttons.less";\n\n// Components\n@import "@{path}component-animations.less";\n@import "@{path}glyphicons.less";\n@import "@{path}dropdowns.less";\n@import "@{path}button-groups.less";\n@import "@{path}input-groups.less";\n@import "@{path}navs.less";\n@import "@{path}navbar.less";\n@import "@{path}breadcrumbs.less";\n@import "@{path}pagination.less";\n@import "@{path}pager.less";\n@import "@{path}labels.less";\n@import "@{path}badges.less";\n@import "@{path}jumbotron.less";\n@import "@{path}thumbnails.less";\n@import "@{path}alerts.less";\n@import "@{path}progress-bars.less";\n@import "@{path}media.less";\n@import "@{path}list-group.less";\n@import "@{path}panels.less";\n@import "@{path}wells.less";\n@import "@{path}close.less";\n\n// Components w/ JavaScript\n@import "@{path}modals.less";\n@import "@{path}tooltip.less";\n@import "@{path}popovers.less";\n@import "@{path}carousel.less";\n\n// Utility classes\n@import "@{path}utilities.less";\n@import "@{path}responsive-utilities.less";';
 
         this.write('app/styles/bootstrap.less', html);
     },
 
     configuring: function () {
-        console.log('--configuring--');
         this.dest.mkdir('app');
         this.dest.mkdir('app/scripts');
         this.dest.mkdir('app/styles');
@@ -72,7 +67,6 @@ var BootstrapEditVarsGenerator = yeoman.generators.Base.extend({
     },
 
     writing: function () {
-        console.log('--writing--');
         this.copy('gitignore', '.gitignore');
         this.copy('editorconfig', '.editorconfig');
         this.copy('jshintrc', '.jshintrc');
@@ -96,7 +90,6 @@ var BootstrapEditVarsGenerator = yeoman.generators.Base.extend({
         }
 
         var done = this.async();
-        console.log('--install--');
         this.installDependencies({
             skipMessage: this.options['skip-install-message'],
             skipInstall: this.options['skip-install'],
