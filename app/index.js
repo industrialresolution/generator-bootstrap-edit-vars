@@ -33,8 +33,20 @@ var BootstrapEditVarsGenerator = yeoman.generators.Base.extend({
 
         this.prompt(prompts, function (answers) {
             var features = answers.features;
-            this.jsBootstrap = features.indexOf('jsBootstrap') !== -1;
-            this.fontawesome = features.indexOf('fontawesome') !== -1;
+            if(features.indexOf('jsBootstrap') !== -1){
+                this.jsBootstrap = true;
+            }
+            else{
+                this.jsBootstrap = false;
+            }
+
+            if(features.indexOf('fontawesome') !== -1){
+                this.fontawesome = true;
+            }
+            else{
+                this.fontawesome = false;
+            }
+
             done();
         }.bind(this));
 

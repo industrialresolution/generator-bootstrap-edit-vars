@@ -22,12 +22,28 @@ describe('bootstrap-edit-vars generator', function () {
         var expected = [
             // add files you expect to exist here.
             '.jshintrc',
-            '.editorconfig'
+            '.editorconfig',
+            '.bowerrc',
+            'bower.json',
+            'package.json',
+            'app/favicon.ico',
+            '.gitignore',
+            'Gruntfile.js',
+            'app/.htaccess',
+            'app/index.html',
+            'app/robots.txt',
+            'app/404.html',
+            'app/scripts/main.coffee',
+            'app/styles/bootstrap.less',
+            'app/styles/main.less',
+            'app/styles/variables.less'
         ];
 
         helpers.mockPrompt(this.app, {
-            'fontawesome': false,
-            'jsBootstrap': false
+            'features': [
+                'fontawesome',
+                'jsBootstrap'
+            ]
         });
         this.app.options['skip-install'] = true;
         this.app.run({}, function () {
