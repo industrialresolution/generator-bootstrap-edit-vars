@@ -183,7 +183,7 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',<% if (fontawesome) { %>
             'fonts/{,*/}*.*',<% } %>
             '.htaccess',
-            'images/{,*/}*.{webp,gif}'
+            'images/{,*/}*.*'
           ]
         }]
       },
