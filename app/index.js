@@ -53,15 +53,15 @@ var BootstrapEditVarsGenerator = yeoman.generators.Base.extend({
     },
 
     mainStyleSheet: function () {
-        var html = '@import "bootstrap.less";\n@icon-font-path: "../fonts/glyphicons/";\n\n';
+        var contents = '@import "bootstrap.less";\n@icon-font-path: "../fonts/glyphicons/";\n\n';
 
         if (this.fontawesome) {
-            html = html + '@import "../bower_components/font-awesome/less/font-awesome.less";\n@fa-font-path: "../fonts/font-awesome";\n\n';
+            contents = contents + '@import "../bower_components/font-awesome/less/font-awesome.less";\n@fa-font-path: "../fonts/font-awesome";\n\n';
         }
 
-        html = html + '.browsehappy {\n  margin: 0.2em 0; \n  background: #ccc; \n  color: #000; \n  padding: 0.2em 0; \n}\n\n';
-        html = html + '.jumbotron {\n  margin: 50px auto 0 auto;\n}';
-        this.write('app/styles/main.less', html);
+        contents = contents + '.browsehappy {\n  margin: 0.2em 0; \n  background: #ccc; \n  color: #000; \n  padding: 0.2em 0; \n}\n\n';
+        contents = contents + '.jumbotron {\n  margin: 50px auto 0 auto;\n}';
+        this.write('app/styles/main.less', contents);
     },
 
     bootstrapStylesheet: function () {
