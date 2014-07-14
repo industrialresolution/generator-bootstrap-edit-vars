@@ -2,7 +2,7 @@
   "name": "<%= _.slugify(appname) %>",
   "version": "0.0.0",
   "dependencies": {
-    "bootstrap": "~3.1.1",<% if (fontawesome) { %>
+    "bootstrap": "~3.2.0",<% if (fontawesome) { %>
     "font-awesome": "~4.1.0",<% } %>
     "modernizr": "~2.8.2",
     "jquery": "~1.11.1"
