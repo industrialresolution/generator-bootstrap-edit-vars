@@ -1,6 +1,6 @@
 {
     "name": "generator-bootstrap-edit-vars",
-    "version": "2.0.2",
+    "version": "2.1.0",
     "description": "Yeoman generator: Bootstrap + Editable variables.less file",
     "main": "app/index.js",
     "scripts": {
