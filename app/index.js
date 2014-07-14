@@ -83,7 +83,7 @@ var BootstrapEditVarsGenerator = yeoman.generators.Base.extend({
         this.copy('robots.txt', 'app/robots.txt');
         this.copy('htaccess', 'app/.htaccess');
         this.copy('variables.less', 'app/styles/variables.less');
-		this.copy('bootstrap.less', 'app/styles/bootstrap.less');
+        this.copy('bootstrap.less', 'app/styles/bootstrap.less');
         //Ideally we'd copy this from bootstrap3 after it's installed, but there doesn't seem to be a good mechanism for that right now.
         this.template('Gruntfile.js');
         this.template('_package.json', 'package.json');
