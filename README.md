@@ -1,7 +1,13 @@
 # generator-bootstrap-edit-vars [![Build Status](https://secure.travis-ci.org/industrialresolution/generator-bootstrap-edit-vars.png?branch=master)](https://travis-ci.org/industrialresolution/generator-bootstrap-edit-vars)
 
-> A yeoman generator to work with the LESS version of Bootstrap 3. This version allows you to customize your own 
+> A yeoman generator to work with the LESS version of Bootstrap 3. This version allows you to customize your own
 'variables.less'.
+
+## Release Notes
+
+### v2.1.0 - 7/14/2014
+* Bootstrap 3.2.0
+* Modernizr 2.8.3
 
 ## Getting Started
 
@@ -49,4 +55,3 @@ If you'd like to get to know Yeoman better and meet some of his friends, [Grunt]
 
 * [http://theindustrialresolution.com](http://theindustrialresolution.com)
 * [@tyler_golden](http://twitter.com/tyler_golden)
-
